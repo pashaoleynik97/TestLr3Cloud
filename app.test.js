@@ -3,11 +3,11 @@ const app = require('./app');
 let server;
 
 beforeAll(() => {
-  server = app.listen(3000); 
+  server = app.listen(3000);  // Запуск сервера на тестовому порту
 });
 
 afterAll((done) => {
-  server.close(done); 
+  server.close(done);  // Закриття сервера після завершення тестів
 });
 
 describe('GET /getPageMeta', () => {

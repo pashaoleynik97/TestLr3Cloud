@@ -4,7 +4,6 @@ const cheerio = require('cheerio');
 const { URL } = require('url');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
 
 app.get('/getPageMeta', async (req, res) => {
   const pageUrl = req.query.pageUrl;
@@ -52,10 +51,6 @@ app.get('/getPageMeta', async (req, res) => {
       error: 'Page can not be reached. Check your URL and try again',
     });
   }
-});
-
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
 });
 
 module.exports = app;
