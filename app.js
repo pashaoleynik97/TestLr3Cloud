@@ -5,6 +5,8 @@ const { URL } = require('url');
 
 const app = express();
 
+const unusedVariable = "This will cause an ESLint error";
+
 app.get('/getPageMeta', async (req, res) => {
   const pageUrl = req.query.pageUrl;
 
@@ -32,7 +34,8 @@ app.get('/getPageMeta', async (req, res) => {
                         $('head meta[property="og:description"]').attr('content') ||
                         '';
 
-    const domainUrl = new URL(pageUrl).hostname;
+    // const domainUrl = new URL(pageUrl).hostname;
+    const domainUrl = 'incorrect.com'; // just to test Test Failure
 
     res.json({
       faviconUrl,
