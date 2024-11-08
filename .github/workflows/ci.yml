@@ -7,7 +7,7 @@ on:
       - master  # Launch after push to master
   pull_request:
     branches:
-      - main  # Launch after PR to master
+      - master  # Launch after PR to master
 
 jobs:
   build:
@@ -22,7 +22,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '22.11.0' 
+          node-version: '18' 
 
       # Step 3: Install dependencies
       - name: Install dependencies
