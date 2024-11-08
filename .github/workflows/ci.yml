@@ -10,7 +10,7 @@ on:
       - master  # Launch after PR to master
 
 jobs:
-  build:
+  lint:
     runs-on: ubuntu-latest
 
     steps:
@@ -31,6 +31,24 @@ jobs:
       # Step 4: Launch ESLint
       - name: Run ESLint
         run: npm run lint
+
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Load code from repo
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Step 2: Install Node
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18' 
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: npm install
 
       # Step 5: Launch tests
       - name: Run tests
